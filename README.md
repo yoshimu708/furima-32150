@@ -1,24 +1,70 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+| Column              | Type       | Options      |
+| ------------------- | ---------- | ------------ |
+| nickname            | string     | null: false  |
+| password            | string     | null: false  |
+| email               | text       | null: false  |
+| first_name          | string     | null: false  |
+| last_name           | string     | null: false  |
+| first_name_reading  | string     | null: false  |
+| last_name_reading   | string     | null: false  |
+| birthday            | string     | null: false  |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many  :items
+- has_many  :purchases
+- has_many  :streets
 
-* System dependencies
 
-* Configuration
+## itemsテーブル
+| Column             | Type       | Options      |
+| ------------------ | -------    | ------------ |
+| product name       | string     | null: false  |
+| product price      | string     | null: false  |
+| category           | string     | null: false  |
+| brand              | string     | null: false  |
+| status             | string     | null: false  |
+| shipment source    | string     | null: false  |
+| estimated_arrival  | string     | null: false  |
+| images             | string     | null: false  |
 
-* Database creation
+### Association
 
-* Database initialization
+- belongs_to :user
+- has_one    :purchase
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchasesテーブル
+| Column         | Type       | Options      |
+| -------------- | -------    | ------------ |
+| purchase_goods | string     | null: false  |
+| payment_amount | string     | null: false  |
+| item_id        | reference  |              |
+| user_id        | reference  |              |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :user
+- belongs_to :item
+- has_one    :street
+
+
+## streetsテーブル
+| Column             | Type       | Options      |
+| ------------------ | -------    | ------------ |
+| phone_number       | string     | null: false  |
+| post_code          | string     | null: false  |
+| adress             | string     | null: false  |
+| municipal_district | string     | null: false  |
+| building           | string     |              |
+| prefecture         | string     | null: false  |
+| purchases_id       | reference  |              |
+| user_id            | reference  |              |
+
+### Association
+
+- belongs_to :user
+- belongs_to :purchase
