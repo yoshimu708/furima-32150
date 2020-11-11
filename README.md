@@ -29,6 +29,8 @@
 | shipment_source_id   | integer    | null: false  |
 | estimated_arrival_id | integer    | null: false  |
 | delivery_fee_id      | integer    | null: false  |
+| explanation          | text       | null: false  |
+
 
 ### Association
 
