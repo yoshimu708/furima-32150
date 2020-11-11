@@ -10,7 +10,7 @@
 | last_name           | string     | null: false  |
 | first_name_reading  | string     | null: false  |
 | last_name_reading   | string     | null: false  |
-| birthday            | string     | null: false  |
+| birthday            | date       | null: false  |
 
 ### Association
 
@@ -39,8 +39,8 @@
 ## purchasesテーブル
 | Column         | Type       | Options      |
 | -------------- | -------    | ------------ |
-| item_id        | integer    |              |
-| user_id        | integer    |              |
+| item_id        | integer    | null: false  |
+| user_id        | integer    | null: false  |
 
 ### Association
 
@@ -58,7 +58,7 @@
 | municipal_district | string     | null: false  |
 | building           | string     |              |
 | prefecture_id      | integer    | null: false  |
-| purchases_id       | integer    |              |
+| purchases_id       | integer    | null: false  |
 
 ### Association
 
