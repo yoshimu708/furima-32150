@@ -4,8 +4,8 @@
 | Column              | Type       | Options      |
 | ------------------- | ---------- | ------------ |
 | nickname            | string     | null: false  |
-| password            | string     | null: false  |
-| email               | string       | null: false  |
+| encrypted_password  | string     | null: false  |
+| email               | string     | null: false  |
 | first_name          | string     | null: false  |
 | last_name           | string     | null: false  |
 | first_name_reading  | string     | null: false  |
@@ -19,15 +19,16 @@
 
 
 ## itemsテーブル
-| Column             | Type       | Options      |
-| ------------------ | -------    | ------------ |
-| name               | string     | null: false  |
-| price              | string     | null: false  |
-| category           | string     | null: false  |
-| brand              | string     | null: false  |
-| status             | string     | null: false  |
-| shipment source    | string     | null: false  |
-| estimated_arrival  | string     | null: false  |
+| Column               | Type       | Options      |
+| -------------------- | -------    | ------------ |
+| name                 | string     | null: false  |
+| price                | string     | null: false  |
+| category_id          | integer    | null: false  |
+| brand                | string     | null: false  |
+| status_id            | integer    | null: false  |
+| shipment_source_id   | integer    | null: false  |
+| estimated_arrival_id | integer    | null: false  |
+| delivery_fee_id      | integer    | null: false  |
 
 ### Association
 
@@ -38,8 +39,8 @@
 ## purchasesテーブル
 | Column         | Type       | Options      |
 | -------------- | -------    | ------------ |
-| item_id        | reference  |              |
-| user_id        | reference  |              |
+| item_id        | integer    |              |
+| user_id        | integer    |              |
 
 ### Association
 
@@ -56,8 +57,8 @@
 | adress             | string     | null: false  |
 | municipal_district | string     | null: false  |
 | building           | string     |              |
-| prefecture         | string     | null: false  |
-| purchases_id       | reference  |              |
+| prefecture_id      | integer    | null: false  |
+| purchases_id       | integer    |              |
 
 ### Association
 
