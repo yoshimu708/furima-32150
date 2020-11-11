@@ -5,7 +5,7 @@
 | ------------------- | ---------- | ------------ |
 | nickname            | string     | null: false  |
 | password            | string     | null: false  |
-| email               | text       | null: false  |
+| email               | string       | null: false  |
 | first_name          | string     | null: false  |
 | last_name           | string     | null: false  |
 | first_name_reading  | string     | null: false  |
@@ -16,20 +16,18 @@
 
 - has_many  :items
 - has_many  :purchases
-- has_many  :streets
 
 
 ## itemsテーブル
 | Column             | Type       | Options      |
 | ------------------ | -------    | ------------ |
-| product name       | string     | null: false  |
-| product price      | string     | null: false  |
+| name               | string     | null: false  |
+| price              | string     | null: false  |
 | category           | string     | null: false  |
 | brand              | string     | null: false  |
 | status             | string     | null: false  |
 | shipment source    | string     | null: false  |
 | estimated_arrival  | string     | null: false  |
-| images             | string     | null: false  |
 
 ### Association
 
@@ -40,8 +38,6 @@
 ## purchasesテーブル
 | Column         | Type       | Options      |
 | -------------- | -------    | ------------ |
-| purchase_goods | string     | null: false  |
-| payment_amount | string     | null: false  |
 | item_id        | reference  |              |
 | user_id        | reference  |              |
 
@@ -62,9 +58,7 @@
 | building           | string     |              |
 | prefecture         | string     | null: false  |
 | purchases_id       | reference  |              |
-| user_id            | reference  |              |
 
 ### Association
 
-- belongs_to :user
 - belongs_to :purchase
