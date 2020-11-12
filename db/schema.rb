@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_11_12_022428) do
     t.string "last_name", null: false
     t.string "first_name_reading", null: false
     t.string "last_name_reading", null: false
-    t.date "birtyday", null: false
+    t.date "birthday", null: false
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
