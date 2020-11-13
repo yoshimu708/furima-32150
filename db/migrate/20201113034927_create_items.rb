@@ -11,6 +11,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :delivery_fee_id,     null: false
       t.text    :explanation,         null: false
       t.timestamps
+      t.integer :genre_id,            null: false
     end
   end
 end
