@@ -6,8 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :email,    uniqueness: true
-  validates :password,presence: true,confirmation: true, format: { with:/\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i , message: '半角数字混合で入力してください' }
-  
+  validates :password, presence: true, confirmation: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: '半角数字混合で入力してください' }
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: '全角文字を使用してください' } do
     validates :first_name
@@ -20,5 +19,4 @@ class User < ApplicationRecord
   end
 
   validates :birthday, presence: true
-
 end
