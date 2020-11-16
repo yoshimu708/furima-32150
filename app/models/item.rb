@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :genre
+  belongs_to_active_hash [:genre,:status,:shipment_source,:estimated_arrival,:delivery_fee]
 
   validates :name, presence: true
   validates :explanation, presence: true
