@@ -10,6 +10,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :estimatedArrival
   belongs_to_active_hash :deliveryFee
 
+  default_scope -> { order(created_at: :desc) }
+
+
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
