@@ -12,7 +12,6 @@ class Item < ApplicationRecord
 
   default_scope -> { order(created_at: :desc) }
 
-
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
