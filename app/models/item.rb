@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :estimatedArrival
   belongs_to_active_hash :deliveryFee
 
-  with_options numericality: { other_than: 1 }  do
+  with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
     validates :delivery_fee_id
@@ -18,12 +18,11 @@ class Item < ApplicationRecord
     validates :estimated_arrival_id
   end
 
-  with_options presence: true  do
+  with_options presence: true do
     validates :name
     validates :explanation
     validates :image
   end
 
   validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください' }, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
-
 end
