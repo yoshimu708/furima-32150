@@ -7,11 +7,9 @@ window.addEventListener('load', () => {
   const addTax = document.getElementById("add-tax-price");
   addTax.innerHTML = Math.floor(inputValue*0.1);
     tax = addTax.innerHTML;
-    console.log(tax);
 
   const profit = document.getElementById("profit");
   profit.innerHTML = Math.floor(inputValue-tax);
     fit = profit.innerHTML;
-    console.log(fit)
   })
 });
