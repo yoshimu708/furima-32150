@@ -4,11 +4,11 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
-  belongs_to_active_hash :category
-  belongs_to_active_hash :status
-  belongs_to_active_hash :shipmentSource
-  belongs_to_active_hash :estimatedArrival
-  belongs_to_active_hash :deliveryFee
+  belongs_to :category
+  belongs_to :status
+  belongs_to :shipmentSource
+  belongs_to :estimatedArrival
+  belongs_to :deliveryFee
 
   default_scope -> { order(created_at: :desc) }
 
