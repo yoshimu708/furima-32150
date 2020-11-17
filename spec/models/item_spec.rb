@@ -68,19 +68,5 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price 半角数字で入力してください", "Price is not a number")
       end
-      #it '入力された販売価格によって、販売手数料や販売利益の表示が変わること' do 
-      #end
-      #it 'エラーハンドリングができていること（適切では無い値が入力された場合、情報は保存されず、エラーメッセージを出力させること）' do
-      #end
-      #it '入力に問題がある状態で出品ボタンが押されたら、出品ページに戻りエラーメッセージが表示されること  ' do 
-      #end
-      #it 'ログイン状態のユーザーだけが、商品出品ページへ遷移できること' do 
-        #@message.user = nil
-        #@message.valid?
-        #expect(@message.errors.full_messages).to include("User must exist")
-      #end
-      #it 'ログアウト状態のユーザーは、商品出品ページへ遷移しようとすると、ログインページへ遷移すること' do 
-      #end
-            #bundle exec rspec spec/models/item_spec.rb 
   end
 end
