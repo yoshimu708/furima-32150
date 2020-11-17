@@ -1,13 +1,14 @@
 <%= render "shared/header" %>
 
 <%# 商品の概要 %>
+<%#= @item.each|item| do %>
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @item.name %>
     </h2>
     <div class='item-img-content'>
-      <%= image_tag "item-sample.png" ,class:"item-box-img" %>
+      <%= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %>
       <div class='sold-out'>
         <span>Sold Out!!</span>
@@ -16,12 +17,13 @@
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        ¥ 999,999,999
+        <%=@item.price%>
       </span>
       <span class="item-postage">
-        <%= '配送料負担' %>
+        <%= @item.delivery_fee_id %>
       </span>
     </div>
+<%#end%>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
 
