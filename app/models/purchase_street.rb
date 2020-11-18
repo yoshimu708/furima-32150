@@ -19,5 +19,9 @@ class PurchaseStreet
 
   def save
     # 各テーブルにデータを保存する処理を書く
+     # 購入者情報を保存
+    # Purchase.create(item_id: item_id, user_id: user.id)
+     # 住所の情報を保存
+    # Street.create(phone_number: phone_number,post_code: post_code,adress: adress,municipal_district: municipal_district,building: building,prefecture_id: prefecture_id,purchases_id: purchases_id)
   end
 end
