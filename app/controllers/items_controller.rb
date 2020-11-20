@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @purchase = Purchase.all
   end
 
   def new
@@ -20,6 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @purchase = Purchase.all
   end
 
   def edit
