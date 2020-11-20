@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @purchase = Purchase.all
   end
 
   def new
@@ -26,6 +25,9 @@ class ItemsController < ApplicationController
 
   def edit
     redirect_to action: :index unless current_user.id == @item.user.id
+    if @item.purchase
+      redirect_to root_path
+    end
   end
 
   def update
