@@ -16,10 +16,15 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = PurchaseStreet.new(purchase_params)
-    # binding.pry
     if @purchase.valid?
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+      Payjp::Charge.create(
+        amount: Item.find(purchase_params[:item_id]).price,  # 商品の値段
+        card: purchase_params[:token],    # カードトークン
+        currency: 'jpy'                 # 通貨の種類（日本円）
+      )
       @purchase.save
-      redirect_to root_path
+      return redirect_to root_path
     else
       render :index
     end
@@ -28,6 +33,6 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.require(:purchase_street).permit(:phone_number,:post_code,:adress,:municipal_district,:building,:prefecture_id).merge(item_id:params[:item_id],user_id: current_user.id)
+    params.require(:purchase_street).permit(:phone_number,:post_code,:adress,:municipal_district,:building,:prefecture_id).merge(token: params[:token],item_id:params[:item_id],user_id: current_user.id)
   end
 end

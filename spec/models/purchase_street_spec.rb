@@ -45,5 +45,12 @@ RSpec.describe PurchaseStreet, type: :model do
       @purchase_street.valid?
       expect(@purchase_street.errors.full_messages).to include("Prefecture must be other than 1")
     end
+
+    it "tokenが空では登録できないこと" do
+      @purchase_street.token = nil
+      @purchase_street.valid?
+      expect(@purchase_street.errors.full_messages).to include("Token can't be blank")
+    end
+    #bundle exec rspec spec/models/purchase_street_spec.rb
   end
 end

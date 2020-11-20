@@ -1,12 +1,13 @@
 class PurchaseStreet
   include ActiveModel::Model
-  attr_accessor :item_id,:user_id,:phone_number,:post_code,:adress,:municipal_district,:building,:prefecture_id,:purchases_id
+  attr_accessor :token,:item_id,:user_id,:phone_number,:post_code,:adress,:municipal_district,:building,:prefecture_id,:purchases_id
   # ここにバリデーションの処理を書く
 
    with_options presence: true do
     validates :adress
     validates :municipal_district  
     validates :prefecture_id , numericality: { other_than: 1 }
+    validates :token
    end
     validates :phone_number,presence: true, format:{with:/\d{11}/,message:"ハイフンなしの11文字で入力してください"}
     validates :post_code, presence: true, format:{with: /\A\d{3}[-]\d{4}\z/,message:"ハイフンありの数字７桁で入力してください"}
