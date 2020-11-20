@@ -1,6 +1,9 @@
 class PurchasesController < ApplicationController
-
+  before_action :authenticate_user!, only: [:index]
   def index
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
     #フォームオブジェクトのインスタンスを生成し、インスタンス変数に代入する
     @purchase = PurchaseStreet.new
   end

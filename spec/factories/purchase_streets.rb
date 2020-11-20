@@ -1,12 +1,14 @@
 FactoryBot.define do
   factory :purchase_street do
-    t.string :phone_number        ,null: false
-    t.string :post_code           ,null: false
-    t.string :adress              ,null: false
-    t.string :municipal_district  ,null: false
-    t.integer :prefecture_id      ,null: false
-    t.references :purchase,       foreign_key:true
-    t.string :building
-    t.timestamps
+    #association :item
+
+    phone_number        {85083795793}
+    post_code           {"893-3754"}
+    adress              {"青山町1"}
+    municipal_district  {"横浜市"}
+    prefecture_id       {4}
+    building            {"ハイツ"}
+    item_id             {2}
+    #purchase_id
   end
 end

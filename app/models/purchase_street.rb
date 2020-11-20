@@ -6,7 +6,7 @@ class PurchaseStreet
    with_options presence: true do
     validates :adress
     validates :municipal_district  
-    validates :prefecture_id  
+    validates :prefecture_id , numericality: { other_than: 1 }
    end
     validates :phone_number,presence: true, format:{with:/\d{11}/,message:"ハイフンなしの11文字で入力してください"}
     validates :post_code, presence: true, format:{with: /\A\d{3}[-]\d{4}\z/,message:"ハイフンありの数字７桁で入力してください"}
