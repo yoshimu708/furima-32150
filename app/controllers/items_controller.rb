@@ -20,10 +20,14 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @purchase = Purchase.all
   end
 
   def edit
     redirect_to action: :index unless current_user.id == @item.user.id
+    if @item.purchase
+      redirect_to root_path
+    end
   end
 
   def update
@@ -36,8 +40,8 @@ class ItemsController < ApplicationController
 
   def destroy
     if current_user.id == @item.user_id
-        @item.destroy
-        redirect_to root_path
+      @item.destroy
+      redirect_to root_path
     else
       render :show
     end
