@@ -24,13 +24,12 @@
 | name                 | string     | null: false  |
 | price                | string     | null: false  |
 | category_id          | integer    | null: false  |
-| brand                | string     | null: false  |
 | status_id            | integer    | null: false  |
 | shipment_source_id   | integer    | null: false  |
 | estimated_arrival_id | integer    | null: false  |
 | delivery_fee_id      | integer    | null: false  |
 | explanation          | text       | null: false  |
-
+| user                 |references  |              |
 
 ### Association
 
@@ -42,7 +41,7 @@
 | Column         | Type       | Options      |
 | -------------- | -------    | ------------ |
 | item_id        | integer    | null: false  |
-| user_id        | integer    | null: false  |
+| user           | references | null: false  |
 
 ### Association
 
@@ -60,8 +59,7 @@
 | municipal_district | string     | null: false  |
 | building           | string     |              |
 | prefecture_id      | integer    | null: false  |
-| purchases_id       | integer    | null: false  |
-
+| purchases          | references | null: false  |
 ### Association
 
 - belongs_to :purchase
