@@ -95,13 +95,11 @@
     <% end %>
    <%end%>
   </div>
+  <h4>＜コメント一覧＞</h4>
   <div class="messages", id='messages'>
-      <h4>＜コメント一覧＞</h4>
       <% if @messages %>
-        <% @messages.each do |f| %>
-          <p>
-            <%= f.text %>
-          </p>
+        <% @messages.reverse_each do |f| %>
+          <p><%= f.text %></p>
         <% end %>
       <% end %>
     </div>
