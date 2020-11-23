@@ -4,8 +4,9 @@ class PurchasesController < ApplicationController
 
   def index
     @purchase = PurchaseStreet.new
-    redirect_to root_path if current_user.id == @item.user_id && @item.purchase
-    @purchase = PurchaseStreet.new
+    redirect_to root_path if current_user.id == @item.user_id || @item.purchase
+    
+    #@purchase = PurchaseStreet.new
   end
 
   def create
