@@ -1,3 +1,4 @@
+if (document.URL.match( /new/ ) ) {
 window.addEventListener('load', () => {
   const priceInput = document.getElementById("item-price");
  priceInput.addEventListener("input", () => {
@@ -13,3 +14,4 @@ window.addEventListener('load', () => {
     fit = profit.innerHTML;
   })
 });
+}
