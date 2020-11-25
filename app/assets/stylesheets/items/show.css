@@ -204,3 +204,12 @@
   font-weight: bold;
   font-size: 23px;
 }
+.messages{
+  width: 40vw;
+  background-color: #fff;
+  margin: 5vh 0;
+  text-align: center;
+}
+.message{
+  border-bottom:solid 2px black;
+}

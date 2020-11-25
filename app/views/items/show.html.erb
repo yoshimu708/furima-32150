@@ -99,7 +99,12 @@
   <div class="messages", id='messages'>
       <% if @messages %>
         <% @messages.reverse_each do |f| %>
-          <p><%= f.text %></p>
+        <div class="message">
+        <p>
+         <%= f.user.nickname %>
+         <%= f.text %>
+        </p>
+        </div>
         <% end %>
       <% end %>
     </div>
