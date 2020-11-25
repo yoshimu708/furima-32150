@@ -2,7 +2,6 @@
 <header class='top-page-header'>
   <div class='search-bar-contents'>
     <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
-
     <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form| %>
        <%= form.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %>
        <button class="search-button">
