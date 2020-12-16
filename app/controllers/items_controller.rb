@@ -49,6 +49,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+    @items = Item.search(params[:keyword])
+  end
+
   private
 
   def item_params

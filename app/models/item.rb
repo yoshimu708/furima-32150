@@ -30,4 +30,13 @@ class Item < ApplicationRecord
   end
 
   validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字で入力してください' }, numericality: { only_integer: true, greater_than: 300, less_than: 9_999_999 }
+
+  def self.search(search)
+    if search != ""
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
 end
